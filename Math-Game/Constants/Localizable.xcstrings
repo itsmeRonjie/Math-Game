@@ -1,0 +1,176 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Anon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anon"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anon"
+          }
+        }
+      }
+    },
+    "Game" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dula"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laro"
+          }
+        }
+      }
+    },
+    "Game Over" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahuman na ang Dula"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tapos na ang Laro"
+          }
+        }
+      }
+    },
+    "High Scores" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pinakataas nga Skor"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pinakamataas na Iskor"
+          }
+        }
+      }
+    },
+    "Level" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lebel"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Antas"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ngalan"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pangalan"
+          }
+        }
+      }
+    },
+    "New High Score!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bag-ong Pinakataas nga Skor!"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bagong Pinakamataas na Iskor!"
+          }
+        }
+      }
+    },
+    "Rank" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ranggo"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ranggo"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipigi"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I-save"
+          }
+        }
+      }
+    },
+    "Score" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ceb-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skor"
+          }
+        },
+        "fil-PH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iskor"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
