@@ -12,13 +12,13 @@ struct MainView: View {
 
     var body: some View {
         TabView {
-            Text("Math Game")
+            MathGameView()
                 .tabItem {
                     Image(systemName: "gamecontroller")
                     Text("Game")
                 }
             
-            Text("High Score View")
+            HighScoreView()
                 .tabItem {
                     Image(systemName: "list.number")
                     Text("High Scores")
