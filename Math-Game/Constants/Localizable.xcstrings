@@ -52,6 +52,9 @@
         }
       }
     },
+    "High Score View" : {
+
+    },
     "High Scores" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -85,6 +88,9 @@
           }
         }
       }
+    },
+    "Math Game" : {
+
     },
     "Name" : {
       "extractionState" : "manual",
