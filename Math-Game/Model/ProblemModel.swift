@@ -40,7 +40,7 @@ struct ProblemModel: Identifiable {
         
         newSolutions.append(Int.random(in: answer+1...aboveAnswer))
         newSolutions.append(Int.random(in: belowAnswer..<answer))
-        self.solutions = newSolutions.shuffled()
+        self.solutions = newSolutions
         
     }
 }
