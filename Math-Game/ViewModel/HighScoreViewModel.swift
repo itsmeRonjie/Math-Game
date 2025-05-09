@@ -20,14 +20,25 @@ class HighScoreViewModel {
         
         container.loadPersistentStores { description, error in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError(
+                    "Unresolved error \(error.localizedDescription), \(error.userInfo)"
+                )
             } else {
                 print(">>> CoreData loaded successfully")
             }
         }
+        fetchHighScores()
     }
     
     func fetchHighScores() {
-        // TODO:
+        let request = NSFetchRequest<HighScoreEntity>(
+            entityName: "HighScoreEntity"
+        )
+        
+        do {
+            highScores = try container.viewContext.fetch(request)
+        } catch let error as NSError {
+            print("Error fetching high scores: \(error.localizedDescription)")
+        }
     }
 }
