@@ -77,10 +77,16 @@ class HighScoreViewModel {
         saveHighScores()
     }
     
-    func deleteHighScore(entity: HighScoreEntity) {
+    private func deleteHighScore(entity: HighScoreEntity) {
         container.viewContext.delete(entity)
         
         saveHighScores()
+    }
+    
+    func deleteHighScore(indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        let entity = highScores[index]
+        deleteHighScore(entity: entity)
     }
     
     func isNewHighScore(score: Int) -> Bool {

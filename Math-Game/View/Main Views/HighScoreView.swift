@@ -29,6 +29,7 @@ struct HighScoreView: View {
                             highScoreEntity: entity
                         )
                     }
+                    .onDelete(perform: highScoreVM.deleteHighScore)
                     .listRowBackground(Color.black)
                 }
                 .listStyle(.plain)
