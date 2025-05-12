@@ -9,6 +9,18 @@ import SwiftUI
 
 struct MathGameView: View {
     private var gameVM: GameViewModel = GameViewModel()
+    private var highScoreVM: HighScoreViewModel = HighScoreViewModel()
+    
+    @State private var highScoreViewIsPresented: Bool = false
+    @State private var playerName: String = ""
+    
+    var showHighScore: Bool {
+        gameVM.gameOver && highScoreVM.isNewHighScore(score: gameVM.score)
+    }
+    
+    var showGameOverView: Bool {
+        gameVM.gameOver
+    }
     var body: some View {
         ZStack{
             GameBackgroundView()
@@ -31,10 +43,23 @@ struct MathGameView: View {
                 Spacer()
                 OptionsView(gameVM: gameVM)
             }
+            .padding()
+            .blur(radius: showGameOverView ? 5 : 0)
+            .disabled(showGameOverView)
+            
+            GameOverView()
+                .padding()
+                .blur(radius: showGameOverView ? 0 : 30)
+                .opacity(showGameOverView ? 1 : 0)
+                .disabled(!showGameOverView)
+                .onTapGesture {
+                    gameVM.reset()
+                }
         }
     }
 }
 
 #Preview {
     MathGameView()
+        .environment(HighScoreViewModel())
 }

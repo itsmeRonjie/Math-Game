@@ -14,6 +14,14 @@ class HighScoreViewModel {
     let container: NSPersistentContainer
     
     var highScores: [HighScoreEntity] = []
+    let maxNumHighScores = 100
+    var minHighScore: Int64? {
+        if highScores.isEmpty {
+            nil
+        } else {
+            highScores.last!.score
+        }
+    }
     
     init() {
         container = NSPersistentContainer(name: "HighScoresDataModel")
@@ -74,5 +82,15 @@ class HighScoreViewModel {
         container.viewContext.delete(entity)
         
         saveHighScores()
+    }
+    
+    func isNewHighScore(score: Int) -> Bool {
+        return if score <= 0 {
+            false
+        } else if let minHighScore {
+            minHighScore < score || highScores.count <= maxNumHighScores
+        } else {
+            true
+        }
     }
 }
