@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct MainView: View {
-
     var body: some View {
         TabView {
             MathGameView()

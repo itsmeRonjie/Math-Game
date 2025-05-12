@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnterNewHighScoreView: View {
-    private var highScoreVM: HighScoreViewModel = HighScoreViewModel()
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
     let score: Int
     @Binding var name: String
     @Binding var isPresented: Bool

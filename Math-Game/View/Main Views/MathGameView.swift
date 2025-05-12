@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MathGameView: View {
     private var gameVM: GameViewModel = GameViewModel()
-    private var highScoreVM: HighScoreViewModel = HighScoreViewModel()
-    
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
+
     @State private var highScoreViewIsPresented: Bool = false
     @State private var playerName: String = ""
     

@@ -23,8 +23,8 @@ struct RankScoreView: View {
     @State private var name = ""
     @State private var editMode = false
 
-    private var highScoreVM: HighScoreViewModel = HighScoreViewModel()
-    
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
+
     init(
         rank: Int,
         score: Int,
@@ -48,6 +48,7 @@ struct RankScoreView: View {
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
                         .cornerRadius(10)
+                        .autocorrectionDisabled(true)
                     
                     Button {
                         highScoreVM
@@ -69,12 +70,22 @@ struct RankScoreView: View {
 
                 }
             } else {
-                Text("Display Score Data")
-                    .onTapGesture {
-                        withAnimation {
-                            editMode.toggle()
-                        }
+                HStack {
+                    Text(rank.ordinal)
+                        .frame(maxWidth: .infinity)
+                    Text("\(score)")
+                        .frame(maxWidth: .infinity)
+                    Text(entity.name?.uppercased() ?? "Anonymous")
+                        .frame(maxWidth: .infinity)
+                }
+                .font(.headline)
+                .fontWeight(.semibold)
+                .foregroundStyle(color)
+                .onTapGesture {
+                    withAnimation {
+                        editMode.toggle()
                     }
+                }
             }
         }
     }
@@ -84,7 +95,9 @@ struct RankScoreView: View {
     RankScoreView(
         rank: 1,
         score: 102,
-        highScoreEntity: HighScoreEntity()
+        highScoreEntity: HighScoreEntity(
+            context: .init(concurrencyType: .mainQueueConcurrencyType)
+        )
     )
     .environment(HighScoreViewModel())
 }

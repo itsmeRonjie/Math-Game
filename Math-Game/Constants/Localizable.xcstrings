@@ -21,6 +21,12 @@
         }
       }
     },
+    "Editing.." : {
+
+    },
+    "Enter Name" : {
+
+    },
     "Game" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -54,9 +60,6 @@
           }
         }
       }
-    },
-    "High Score View" : {
-
     },
     "High Scores" : {
       "extractionState" : "manual",

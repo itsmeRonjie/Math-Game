@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HighScoreView: View {
-    private var highScoreVM: HighScoreViewModel = HighScoreViewModel()
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
 
     var body: some View {
         ZStack {
@@ -23,14 +23,15 @@ struct HighScoreView: View {
                         Array(highScoreVM.highScores.enumerated()),
                         id: \.offset
                     ) { index, entity in
-                        Text("\(index + 1) \(entity.score)")
                         RankScoreView(
                             rank: index + 1,
                             score: Int(entity.score),
                             highScoreEntity: entity
                         )
                     }
+                    .listRowBackground(Color.black)
                 }
+                .listStyle(.plain)
                 
                 Image("creature0")
                     .resizable()

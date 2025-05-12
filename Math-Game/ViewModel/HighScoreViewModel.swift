@@ -71,8 +71,7 @@ class HighScoreViewModel {
         saveHighScores()
     }
     
-    func updateHighScore(entity: HighScoreEntity, name: String) {
-        let entity = HighScoreEntity(context: container.viewContext)
+    func updateHighScore( entity: HighScoreEntity, name: String) {
         entity.name = name
         
         saveHighScores()
