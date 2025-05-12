@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld" : {
+
+    },
     "Anon" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -89,12 +92,6 @@
         }
       }
     },
-    "Math Game" : {
-
-    },
-    "Math Game View" : {
-
-    },
     "Name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -179,6 +176,9 @@
           }
         }
       }
+    },
+    "Score and Lives and Level" : {
+
     }
   },
   "version" : "1.0"

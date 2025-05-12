@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct MathGameView: View {
+    private var gameVM: GameViewModel = GameViewModel()
     var body: some View {
         ZStack{
             GameBackgroundView()
-            Text("Math Game View")
+            VStack {
+                ScoreLivesView(
+                    score: gameVM.score,
+                    lives: gameVM.gameModel.lives,
+                    maxLives: 3,
+                    level: gameVM.gameModel.level
+                )
+                Spacer()
+            }
         }
     }
 }
