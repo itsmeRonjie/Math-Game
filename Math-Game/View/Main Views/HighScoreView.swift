@@ -24,6 +24,11 @@ struct HighScoreView: View {
                         id: \.offset
                     ) { index, entity in
                         Text("\(index + 1) \(entity.score)")
+                        RankScoreView(
+                            rank: index + 1,
+                            score: Int(entity.score),
+                            highScoreEntity: entity
+                        )
                     }
                 }
                 
