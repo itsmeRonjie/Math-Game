@@ -67,8 +67,8 @@ struct MathGameView: View {
                     isPresented: $highScoreViewIsPresented
                 )
             }
-            .onChange(of: showHighScore) { _, newValue in
-                highScoreViewIsPresented = newValue
+            .onChange(of: showHighScore) {
+                highScoreViewIsPresented = showHighScore
             }
     }
 }
