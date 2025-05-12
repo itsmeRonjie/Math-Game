@@ -20,6 +20,15 @@ struct MathGameView: View {
                     level: gameVM.gameModel.level
                 )
                 Spacer()
+                
+                BubbleView(
+                    textColor: .white,
+                    bgColor: .purple.opacity(0.7),
+                    imgName: "bubble2",
+                    text: "\(gameVM.number1) + \(gameVM.number2)"
+                )
+                
+                Spacer()
             }
         }
     }

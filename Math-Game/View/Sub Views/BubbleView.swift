@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BubbleView: View {
     let bubbleSize: CGFloat = 100.0
-    let color: Color
+    let textColor: Color
     let bgColor: Color
     let imgName: String
     let text: String
@@ -18,7 +18,7 @@ struct BubbleView: View {
     
     var body: some View {
         Text(text)
-            .foregroundStyle(color)
+            .foregroundStyle(textColor)
             .font(.largeTitle)
             .fontWeight(.semibold)
             .padding()
@@ -45,19 +45,19 @@ struct BubbleView: View {
 
 #Preview {
     BubbleView(
-        color: .red,
+        textColor: .red,
         bgColor: .green.opacity(0.3),
         imgName: "bubble2",
         text: "30"
     )
     BubbleView(
-        color: .white,
+        textColor: .white,
         bgColor: .green.opacity(0.3),
         imgName: "bubble1",
         text: "30"
     )
     BubbleView(
-        color: .white,
+        textColor: .white,
         bgColor: .green.opacity(0.3),
         imgName: "bubble3",
         text: "30"
