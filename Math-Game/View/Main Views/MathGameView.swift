@@ -10,7 +10,7 @@ import SwiftUI
 struct MathGameView: View {
     private var gameVM: GameViewModel = GameViewModel()
     @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
-
+    
     @State private var highScoreViewIsPresented: Bool = false
     @State private var playerName: String = ""
     
@@ -58,18 +58,17 @@ struct MathGameView: View {
         }
         .fullScreenCover(
             isPresented:  $highScoreViewIsPresented,
-            onDismiss: {
-                gameVM.reset()
-            }) {
-                EnterNewHighScoreView(
-                    score: gameVM.score,
-                    name: $playerName,
-                    isPresented: $highScoreViewIsPresented
-                )
-            }
-            .onChange(of: showHighScore) {
-                highScoreViewIsPresented = showHighScore
-            }
+            onDismiss: { gameVM.reset() }
+        ) {
+            EnterNewHighScoreView(
+                score: gameVM.score,
+                name: $playerName,
+                isPresented: $highScoreViewIsPresented
+            )
+        }
+        .onChange(of: showHighScore) {
+            highScoreViewIsPresented = showHighScore
+        }
     }
 }
 
