@@ -61,7 +61,11 @@ struct MathGameView: View {
             onDismiss: {
                 gameVM.reset()
             }) {
-                Text("Enter new High Score")
+                EnterNewHighScoreView(
+                    score: gameVM.score,
+                    name: $playerName,
+                    isPresented: $highScoreViewIsPresented
+                )
             }
             .onChange(of: showHighScore) { _, newValue in
                 highScoreViewIsPresented = newValue
