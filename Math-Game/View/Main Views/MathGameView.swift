@@ -29,6 +29,7 @@ struct MathGameView: View {
                 )
                 
                 Spacer()
+                OptionsView(gameVM: gameVM)
             }
         }
     }
