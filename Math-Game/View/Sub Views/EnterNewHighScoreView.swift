@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EnterNewHighScoreView: View {
-    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
     let score: Int
     @Binding var name: String
     @Binding var isPresented: Bool
+    @Query private var highScores: [HighScoreEntity] = []
+    @Environment(\.modelContext) var modelContext
     
     init(score: Int, name: Binding<String>, isPresented: Binding<Bool>) {
         self.score = score
@@ -46,8 +48,7 @@ struct EnterNewHighScoreView: View {
                     .padding()
                 
                 Button {
-                    name = name.isEmpty ? "Anonymous" : name.trimmingCharacters(in: .whitespaces)
-                    highScoreVM.addNewHighScore(name: name, score: Int64(score))
+                    addHighScore()
                     isPresented = false
                 } label: {
                     Text("Save")
@@ -57,9 +58,18 @@ struct EnterNewHighScoreView: View {
                         .background(.blue)
                         .cornerRadius(10)
                 }
-
             }
         }
+    }
+    
+    func addHighScore() {
+        name = name.isEmpty ? "Anonymous" : name.trimmingCharacters(in: .whitespaces)
+        modelContext.insert(
+            HighScoreEntity(
+                name: name,
+                score: score
+            )
+        )
     }
 }
 
@@ -68,8 +78,6 @@ struct EnterNewHighScoreView: View {
         score: 2,
         name: .constant(""),
         isPresented: .constant(true)
-        
     )
-    .environment(HighScoreViewModel())
-    
+    .modelContainer(for: HighScoreEntity.self)
 }

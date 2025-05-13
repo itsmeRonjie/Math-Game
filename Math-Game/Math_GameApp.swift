@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Math_GameApp: App {
-    @State private var highScoreVM: HighScoreViewModel = HighScoreViewModel()
-
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environment(highScoreVM)
+                .modelContainer(for: HighScoreEntity.self)
         }
     }
 }

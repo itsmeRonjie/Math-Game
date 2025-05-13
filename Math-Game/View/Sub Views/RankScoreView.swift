@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RankScoreView: View {
     let rank: Int
@@ -22,9 +23,9 @@ struct RankScoreView: View {
     
     @State private var name = ""
     @State private var editMode = false
-
-    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
-
+    
+    @Environment(\.modelContext) var modelContext
+    
     init(
         rank: Int,
         score: Int,
@@ -42,7 +43,7 @@ struct RankScoreView: View {
             if editMode {
                 Text("Editing..")
                 HStack {
-                    TextField(entity.name ?? name, text: $name)
+                    TextField(entity.name, text: $name)
                         .padding()
                         .background(.green.gradient)
                         .fontWeight(.semibold)
@@ -51,15 +52,7 @@ struct RankScoreView: View {
                         .autocorrectionDisabled(true)
                     
                     Button {
-                        highScoreVM
-                            .updateHighScore(
-                                entity: entity,
-                                name: name.isEmpty ? (entity.name ?? "Anonymous") : name
-                            )
-                        
-                        withAnimation {
-                            editMode.toggle()
-                        }
+                        update(entity: entity, name: name)
                     } label: {
                         Text("Save")
                             .foregroundStyle(.white)
@@ -67,7 +60,6 @@ struct RankScoreView: View {
                             .background(.red.gradient)
                             .cornerRadius(10)
                     }
-
                 }
             } else {
                 HStack {
@@ -75,7 +67,7 @@ struct RankScoreView: View {
                         .frame(maxWidth: .infinity)
                     Text("\(score)")
                         .frame(maxWidth: .infinity)
-                    Text(entity.name?.uppercased() ?? "Anonymous")
+                    Text(entity.name.uppercased())
                         .frame(maxWidth: .infinity)
                 }
                 .font(.headline)
@@ -89,6 +81,18 @@ struct RankScoreView: View {
             }
         }
     }
+    
+    func update(entity: HighScoreEntity, name: String) {
+        entity.name = name.isEmpty ? entity.name : name
+        do {
+            try modelContext.save()
+        } catch {
+            print("update/save failure")
+        }
+        withAnimation {
+            editMode.toggle()
+        }
+    }
 }
 
 #Preview {
@@ -96,8 +100,8 @@ struct RankScoreView: View {
         rank: 1,
         score: 102,
         highScoreEntity: HighScoreEntity(
-            context: .init(concurrencyType: .mainQueueConcurrencyType)
+            name: "Ronjie",
+            score: 123
         )
     )
-    .environment(HighScoreViewModel())
 }
